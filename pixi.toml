@@ -5,8 +5,6 @@ platforms = ["osx-arm64", "osx-64", "linux-64", "win-64"]
 
 [tasks]
 postinstall = "pip install --no-build-isolation --no-deps --disable-pip-version-check -e ."
-docs = "mkdocs serve"
-docs-build = "mkdocs build"
 
 [dependencies]
 python = ">=3.11"
@@ -78,6 +76,9 @@ depends_on = ["_install-ui"]
 mkdocs = "*"
 mkdocs-material = "*"
 mkdocstrings-python = "*"
+[feature.docs.tasks]
+docs = "mkdocs serve"
+docs-build = "mkdocs build"
 
 [environments]
 default = ["test"]
