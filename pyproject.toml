@@ -92,6 +92,7 @@ ignore = [
 ]
 select = [
     "B",    # flake8-bugbear
+    "D",    # pydocstyle
     "E",    # pycodestyle errors
     "F",    # pyflakes
     "W",    # pycodestyle warnings
