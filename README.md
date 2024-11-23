@@ -1,4 +1,4 @@
-# panel-copy-paste
+# ✨ panel-copy-paste
 
 [![CI](https://img.shields.io/github/actions/workflow/status/awesome-panel/panel-copy-paste/ci.yml?style=flat-square&branch=main)](https://github.com/awesome-panel/panel-copy-paste/actions/workflows/ci.yml)
 [![conda-forge](https://img.shields.io/conda/vn/conda-forge/panel-copy-paste?logoColor=white&logo=conda-forge&style=flat-square)](https://prefix.dev/channels/conda-forge/packages/panel-copy-paste)
@@ -39,7 +39,7 @@ pixi run test
 import panel_copy_paste
 ```
 
-## Contributing
+## ❤️ Contributing
 
 Contributions are welcome! Please follow these steps to contribute:
 
