@@ -1,0 +1,13 @@
+# This file is managed by Copier; DO NOT EDIT OR REMOVE.
+_commit: dbdb5dc
+_src_path: https://github.com/panel-extensions/copier-template-panel-extension
+add_autobump_workflow: true
+author_email: marc.skov.madsen@gmail.com
+author_name: Marc Skov Madsen
+docs_url: https://awesome-panel.github.io/panel-copy-paste/
+github_url: https://github.com/awesome-panel/panel-copy-paste
+github_user: awesome-panel
+minimal_python_version: py311
+project_short_description: Extends HoloViz Panel with functionality to copy to and
+    paste from the clipboard
+project_slug: panel-copy-paste

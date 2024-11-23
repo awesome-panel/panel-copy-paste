@@ -1,0 +1,60 @@
+site_name: panel-copy-paste
+site_description: Extends HoloViz Panel with functionality to copy to and paste from the clipboard
+site_author: Marc Skov Madsen
+
+repo_url: https://github.com/awesome-panel/panel-copy-paste
+repo_name: awesome-panel/panel-copy-paste
+
+theme:
+    name: material
+    logo: 'assets/logo.svg'
+    features:
+        - content.copy.code
+    palette:
+        # Palette toggle for light mode
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          primary: white
+          accent: blue
+          toggle:
+            icon: material/brightness-7
+            name: Switch to dark mode
+
+        # Palette toggle for dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          primary: black
+          accent: blue
+          toggle:
+            icon: material/brightness-4
+            name: Switch to light mode
+
+markdown_extensions:
+    - toc:
+        permalink: true
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - admonition
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            show_if_no_docstring: true
+            filters:
+            - "!^_"
+
+watch:
+    - docs
+
+nav:
+    - Home: index.md
+    - Reference: reference/panel_copy_paste.md
