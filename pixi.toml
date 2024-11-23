@@ -10,6 +10,7 @@ docs-build = "mkdocs build"
 
 [dependencies]
 python = ">=3.11"
+jedi-language-server = "*"
 
 [host-dependencies]
 pip = "*"
