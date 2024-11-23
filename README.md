@@ -4,6 +4,7 @@
 [![conda-forge](https://img.shields.io/conda/vn/conda-forge/panel-copy-paste?logoColor=white&logo=conda-forge&style=flat-square)](https://prefix.dev/channels/conda-forge/packages/panel-copy-paste)
 [![pypi-version](https://img.shields.io/pypi/v/panel-copy-paste.svg?logo=pypi&logoColor=white&style=flat-square)](https://pypi.org/project/panel-copy-paste)
 [![python-version](https://img.shields.io/pypi/pyversions/panel-copy-paste?logoColor=white&logo=python&style=flat-square)](https://pypi.org/project/panel-copy-paste)
+
 Extends HoloViz Panel with functionality to copy to and paste from the clipboard
 
 ## Features
