@@ -21,6 +21,7 @@ repos:
         args: [ --fix ]
       # Run the formatter.
       - id: ruff-format
+        types_or: [ python, pyi ]
   - repo: https://github.com/hoxbro/clean_notebook
     rev: v0.1.15
     hooks:
