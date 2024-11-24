@@ -33,8 +33,9 @@ CopyButton(value="Hello World").servable()
 
 As `value` you can use any of the types below.
 
+- `None`: Will copy as the empty string.
 - `str`: Any String value
-- `DataFrame`: Pandas and Polars dataframes
+- `DataFrame`: Pandas and Polars dataframes will copy as a tab separated csv string.
 
 More types can be supported. Please [create a Feature Request](https://github.com/awesome-panel/panel-copy-paste/issues).
 
@@ -68,6 +69,15 @@ pixi run pre-commit-install
 pixi run postinstall
 pixi run test
 ```
+
+This repository is based on [copier-template-panel-extension](https://github.com/panel-extensions/copier-template-panel-extension).
+To update to the latest template version run:
+
+```bash
+pixi exec --spec copier --spec ruamel.yaml -- copier update --defaults --trust
+```
+
+Note: `copier` will show `Conflict` for files with manual changes during an update. This is normal. As long as there are no merge conflict markers, all patches applied cleanly.
 
 ## ❤️ Contributing
 
