@@ -38,8 +38,9 @@ classifiers = [
 ]
 
 dependencies = [
-    'panel >=1.5.0',
-    'packaging',
+    "narwhals",
+    "packaging",
+    "panel >=1.5.0",
 ]
 
 [project.urls]
@@ -48,15 +49,17 @@ Source = "https://github.com/awesome-panel/panel-copy-paste"
 
 [project.optional-dependencies]
 dev = [
-    'jedi-language-server',
-    'mkdocs-material',
-    'mkdocs',
-    'mkdocstrings[python]',
-    'pytest-asyncio',
-    'pytest-rerunfailures',
-    'pytest-xdist',
-    'pytest',
-    'watchfiles',
+    "jedi-language-server;sys_platform == 'linux'",
+    "mkdocs-material",
+    "mkdocs",
+    "mkdocstrings[python]",
+    "pandas",
+    "polars",
+    "pytest-asyncio",
+    "pytest-rerunfailures",
+    "pytest-xdist",
+    "pytest",
+    "watchfiles",
 
 ]
 mypy = [
