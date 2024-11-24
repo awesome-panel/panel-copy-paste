@@ -15,7 +15,7 @@ button = PasteButton(target=editor)
 pn.Column(button, editor).servable()
 ```
 
-If you want a **custom button**, then its also possible:
+If you want a **custom button**, it's also possible:
 
 ```{.python pycafe-link hl_lines="4-5"}
 import panel as pn
@@ -31,7 +31,7 @@ pn.Column(button, editor).servable()
 
 ## Paste to DataFrame
 
-The `PasteToDataFrameButton` can be used to **paste a *tab* separated string from Excel** or other application into your data app:
+The `PasteToDataFrameButton` can be used to **paste a *tab-separated* string from Excel** or another application into your data app:
 
 ```{.python pycafe-link extra-requirements="pandas" hl_lines="2,7"}
 import panel as pn

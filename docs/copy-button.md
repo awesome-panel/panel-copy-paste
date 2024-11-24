@@ -20,7 +20,7 @@ dataframe = pl.DataFrame({"Hello": [1,2], "World": ["a", "b"]})
 CopyButton(value=dataframe).servable()
 ```
 
-You can also provide a **`callback` (function), `Parameter` or `Parameterized`** object:
+You can also provide a **`callback` (function), `Parameter`, or `Parameterized`** object:
 
 ```{.python pycafe-link extra-requirements="pandas" hl_lines="7-8"}
 import panel as pn
@@ -35,7 +35,7 @@ button = CopyButton(value=widget)
 pn.Column(button, widget).servable()
 ```
 
-If you want a **custom `button`** its also possible:
+If you want a **custom `button`**, it's also possible:
 
 ```{.python pycafe-link hl_lines="3-4"}
 import panel as pn
