@@ -55,6 +55,7 @@ dev = [
     "mkdocstrings[python]",
     "pandas",
     "polars",
+    "pre-commit",
     "pytest-asyncio",
     "pytest-rerunfailures",
     "pytest-xdist",

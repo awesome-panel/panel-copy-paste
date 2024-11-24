@@ -5,11 +5,11 @@
 [![pypi-version](https://img.shields.io/pypi/v/panel-copy-paste.svg?logo=pypi&logoColor=white&style=flat-square)](https://pypi.org/project/panel-copy-paste)
 [![python-version](https://img.shields.io/pypi/pyversions/panel-copy-paste?logoColor=white&logo=python&style=flat-square)](https://pypi.org/project/panel-copy-paste)
 
-Extends HoloViz Panel with functionality to copy to and paste from the clipboard
+Extends HoloViz Panel with copy-paste functionality.
 
 ## Features
 
-panel-copy-paste
+- `CopyButton`: Enables you to copy Python objects to the clipboard.
 
 ## Installation
 
@@ -19,24 +19,46 @@ Install it via `pip`:
 pip install panel-copy-paste
 ```
 
-## Development
+## Usage
 
-This project is managed by [pixi](https://pixi.sh).
-You can install the package in development mode using:
+To use the `CopyButton`:
+
+```python
+from panel_copy_paste import CopyButton
+
+CopyButton(value="Hello World").servable()
+```
+
+## Supported Types
+
+- `str`: Any String value
+- `DataFrame`: Pandas and Polars dataframes
+
+More types can be supported. Please [create a Feature Request](https://github.com/awesome-panel/panel-copy-paste/issues).
+
+## Development
 
 ```bash
 git clone https://github.com/awesome-panel/panel-copy-paste
 cd panel-copy-paste
+```
 
+For a simple setup use [`uv`](https://docs.astral.sh/uv/):
+
+```bash
+uv venv
+source .venv/bin/activate # on linux. Similar commands for windows and osx
+uv pip install -e .[dev]
+pre-commit run install
+pytest tests
+```
+
+For the full setup used by Github Actions use [pixi](https://pixi.sh):
+
+```bash
 pixi run pre-commit-install
 pixi run postinstall
 pixi run test
-```
-
-## Usage
-
-```python
-import panel_copy_paste
 ```
 
 ## ❤️ Contributing
