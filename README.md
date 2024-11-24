@@ -11,6 +11,10 @@ Extends HoloViz Panel with copy-paste functionality.
 
 - `CopyButton`: Enables you to copy Python objects to the clipboard.
 
+## Pin your version!
+
+This project is **in its early stages**, so if you find a version that suits your needs, it’s recommended to **pin your version**, as updates may introduce changes.
+
 ## Installation
 
 Install it via `pip`:
