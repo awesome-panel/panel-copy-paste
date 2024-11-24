@@ -22,7 +22,7 @@ class CopyButton(pn.custom.JSComponent):
     """
 
     value = param.Parameter(doc="""A String or DataFrame. Or a callback, Parameter or Parameterized object providing such types.""")
-    button = pn.custom.Child(constant=True, doc="""A custom Button or ButtonIcon to use.""")
+    button = pn.custom.Child(constant=True, doc="""An optional custom Button or ButtonIcon to use.""")
 
     _DEFAULT_BUTTON = pn.widgets.ButtonIcon(description="Copy to clip board.", icon="copy", active_icon="check", toggle_duration=1500)
     _data = param.Parameter(doc="""The value to be transferred to the clip board.""")

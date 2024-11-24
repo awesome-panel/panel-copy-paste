@@ -105,7 +105,7 @@ class PasteButton(PasteButtonBase):
     """
 
     value = param.String(default="", doc="""The value from the clip board as a string.""")
-    button = pn.custom.Child(constant=True, doc="""A custom Button or ButtonIcon to use.""")
+    button = pn.custom.Child(constant=True, doc="""An optional custom Button or ButtonIcon to use.""")
     target = param.Parameter(
         doc="""If a widget its value is set to value when it changes. If a Pane its object will be
         set to the value. If a callable the callable will be executed on the value.""",
