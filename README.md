@@ -10,6 +10,8 @@ Extends HoloViz Panel with copy-paste functionality.
 
 [![Copy-Paste Reference App](https://raw.githubusercontent.com/awesome-panel/panel-copy-paste/refs/heads/main/docs/assets/panel-copy-paste.gif)](https://py.cafe/awesome.panel.org/panel-copy-paste)
 
+Copy-paste to and from your data apps as well as external applications like Excel.
+
 ## Features
 
 - `CopyButton`: Enables you to copy Python objects to the clipboard.
