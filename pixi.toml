@@ -8,7 +8,7 @@ postinstall = "pip install --no-build-isolation --no-deps --disable-pip-version-
 
 [dependencies]
 python = ">=3.11"
-jedi-language-server = "*"
+narwhals = ">=1.14.2,<2"
 
 [host-dependencies]
 pip = "*"
@@ -22,6 +22,8 @@ setuptools-scm = "*"
 pytest = ">=6"
 pytest-cov = "*"
 mypy = "*"
+pandas = ">=2.2.3,<3"
+polars = ">=1.14.0,<2"
 [feature.test.tasks]
 test = "pytest"
 test-coverage = "pytest --cov=panel_copy_paste --cov-report=xml --cov-report=term-missing"

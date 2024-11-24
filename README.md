@@ -53,7 +53,7 @@ pre-commit run install
 pytest tests
 ```
 
-For the full setup used by Github Actions use [pixi](https://pixi.sh):
+For the full setup used by Github Actions use [`pixi`](https://pixi.sh):
 
 ```bash
 pixi run pre-commit-install
