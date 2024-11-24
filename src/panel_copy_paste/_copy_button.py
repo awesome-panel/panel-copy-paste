@@ -103,7 +103,3 @@ class CopyButton(pn.custom.JSComponent):
 
         text_area_input = pn.widgets.TextAreaInput(rows=10)
         return pn.Row(pn.Column(str_button, pandas_button, polars_button), text_area_input)
-
-
-if pn.state.served:
-    CopyButton._create_test_app().servable()
