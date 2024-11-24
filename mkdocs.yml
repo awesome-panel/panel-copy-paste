@@ -36,9 +36,21 @@ markdown_extensions:
         anchor_linenums: true
     - pymdownx.tasklist:
         custom_checkbox: true
+    - pymdownx.snippets:
+        url_download: true
     - pymdownx.inlinehilite
-    - pymdownx.snippets
-    - pymdownx.superfences
+    - pymdownx.superfences:
+        custom_fences:
+        - name: python
+          class: 'highlight'
+          validator: !!python/name:mkdocs_pycafe.validator
+          format: !!python/object/apply:mkdocs_pycafe.formatter
+            kwds:
+              type: panel
+              requirements: |
+                panel-copy-paste
+              link_text: |
+                ►  Run
     - admonition
 
 plugins:
@@ -47,14 +59,16 @@ plugins:
       handlers:
         python:
           options:
-            docstring_style: google
+            docstring_style: numpy
             show_if_no_docstring: true
             filters:
             - "!^_"
 
 watch:
     - docs
+    - src/panel_copy_paste
 
 nav:
     - Home: index.md
+    - Copy Button: copy-button.md
     - Reference: reference/panel_copy_paste.md

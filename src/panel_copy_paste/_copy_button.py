@@ -9,6 +9,18 @@ logger = logging.getLogger(__name__)
 
 
 class CopyButton(pn.custom.JSComponent):
+    """
+    A custom Panel widget to copy a value to the clipboard.
+
+    Currently supports copying strings and DataFrames.
+
+    Examples
+    --------
+    >>> from panel_copy_paste import CopyButton
+    >>> CopyButton(value="Hello World").servable()
+
+    """
+
     value = param.Parameter(doc="""A String or DataFrame. Or a callback, Parameter or Parameterized object providing such types.""")
     button = pn.custom.Child(constant=True, doc="""A custom Button or ButtonIcon to use.""")
 
