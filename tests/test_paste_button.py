@@ -3,7 +3,17 @@
 import pandas as pd
 import panel as pn
 
-from panel_copy_paste import PasteToDataFrameButton
+from panel_copy_paste import PasteButton, PasteToDataFrameButton
+
+
+def test_paste_string_input():
+    """We can paste string data into a Code Editor."""
+    editor = pn.widgets.CodeEditor()
+    button = PasteButton(target=editor)
+
+    button.data = "Hello World"
+    assert button.value == "Hello World"
+    assert editor.value == "Hello World"
 
 
 def test_paste_csv_input():

@@ -36,7 +36,7 @@ class PasteButtonBase(pn.custom.JSComponent):
         allow_refs=False,
     )
 
-    transform_func = do_nothing
+    _transform_func = do_nothing
     _DEFAULT_BUTTON = pn.widgets.ButtonIcon(description="Paste from clipboard.", icon="clipboard", active_icon="check", toggle_duration=1500)
 
     _rename = {"value": None, "target": None}
@@ -63,7 +63,7 @@ class PasteButtonBase(pn.custom.JSComponent):
     def __init__(self, **params):
         if "button" not in params:
             params["button"] = self._get_new_button()
-        self.transform_func = params.pop("transform_func", self.transform_func)  # type: ignore[method-assign]
+        self._transform_func = params.pop("_transform_func", self._transform_func)  # type: ignore[method-assign]
         super().__init__(**params)
 
     @classmethod
@@ -72,7 +72,7 @@ class PasteButtonBase(pn.custom.JSComponent):
 
     @param.depends("data", watch=True)
     def _handle_data(self):
-        self.value = self.transform_func(self.data)
+        self.value = self._transform_func(self.data)
         if self.target:
             self._set_target_value(self.target, self.value)
 
@@ -90,12 +90,52 @@ class PasteButtonBase(pn.custom.JSComponent):
 
 
 class PasteButton(PasteButtonBase):
-    value = param.String(default="", doc="""The value from the clip board as a string.""")
+    """
+    A Custom Panel widget to paste a string value from the clipboard.
 
-    transform_func = do_nothing
+    Examples
+    --------
+    >>> import panel as pn
+    >>> from panel_copy_paste import PasteButton
+    >>> pn.extension("codeeditor")
+    >>> editor = pn.widgets.CodeEditor()
+    >>> button = PasteButton(target=editor)
+    >>> pn.Column(button, editor).servable()
+
+    """
+
+    value = param.String(default="", doc="""The value from the clip board as a string.""")
+    button = pn.custom.Child(constant=True, doc="""A custom Button or ButtonIcon to use.""")
+    target = param.Parameter(
+        doc="""If a widget its value is set to value when it changes. If a Pane its object will be
+        set to the value. If a callable the callable will be executed on the value.""",
+        allow_refs=False,
+    )
+
+    _transform_func = do_nothing
 
 
 class PasteToDataFrameButton(PasteButtonBase):
-    value = param.DataFrame(doc="""The value from the clip board as a Pandas DataFrame.""")
+    """
+    A Custom Panel widget to paste a tab separated string from the clipboard into a Pandas DataFrame.
 
-    transform_func = read_csv
+    Examples
+    --------
+    >>> import panel as pn
+    >>> from panel_copy_paste import PasteToDataFrameButton
+    >>> pn.extension("tabulator")
+    >>> table = pn.widgets.Tabulator()
+    >>> button = PasteToDataFrameButton(target=table)
+    >>> pn.Column(button, table).servable()
+
+    """
+
+    value = param.DataFrame(doc="""The value from the clip board as a Pandas DataFrame.""")
+    button = pn.custom.Child(constant=True, doc="""A custom Button or ButtonIcon to use.""")
+    target = param.Parameter(
+        doc="""If a widget its value is set to value when it changes. If a Pane its object will be
+        set to the value. If a callable the callable will be executed on the value.""",
+        allow_refs=False,
+    )
+
+    _transform_func = read_csv

@@ -10,6 +10,8 @@ Extends HoloViz Panel with copy-paste functionality.
 ## Features
 
 - `CopyButton`: Enables you to copy Python objects to the clipboard.
+- `PasteButton`: Enables you to paste strings from the clipboard.
+- `PasteToDataFrameButton`: Enables you to paste strings from the clipboard into dataframe values.
 
 ## Pin your version!
 
@@ -28,26 +30,43 @@ pip install panel-copy-paste
 To use the `CopyButton`:
 
 ```python
+import panel as pn
 from panel_copy_paste import CopyButton
 
-CopyButton(value="Hello World").servable()
+pn.extension("codeeditor")
+
+editor = pn.widgets.CodeEditor()
+button = CopyButton(value="Hello World")
+pn.Column(button, editor).servable()
 ```
 
-## Supported Types
+To use the `PasteButton`:
 
-As `value` you can use any of the types below.
+```python
+import panel as pn
+from panel_copy_paste import PasteButton
 
-- `None`: Will copy as the empty string.
-- `str`: Any String value
-- `DataFrame`: Pandas and Polars dataframes will copy as a tab separated csv string.
+pn.extension("codeeditor")
 
-More types can be supported. Please [create a Feature Request](https://github.com/awesome-panel/panel-copy-paste/issues).
+editor = pn.widgets.CodeEditor()
+button = PasteButton(target=editor)
+pn.Column(button, editor).servable()
+```
 
-In addition the below values will be resolved to above types
+To use the `PasteToDataFrameButton`:
 
-- `Parameterized`: Must have `.value` or `.object` attribute.
-- `Parameter`:
-- `Callback`:
+```python
+import panel as pn
+from panel_copy_paste import PasteToDataFrameButton
+
+pn.extension("tabulator")
+
+table = pn.widgets.Tabulator()
+button = PasteToDataFrameButton(target=table)
+pn.Column(button, table).servable()
+```
+
+For more examples check out the [documentation](https://awesome-panel.github.io/panel-copy-paste/).
 
 ## Development
 

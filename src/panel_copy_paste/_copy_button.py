@@ -34,9 +34,7 @@ class CopyButton(pn.custom.JSComponent):
       el.appendChild(button)
 
       model.on("_data", (e)=>{
-        navigator.clipboard.writeText(model._data).then(function() {
-            console.log('Writing to clipboard was successful!');
-        }, function(err) {
+        navigator.clipboard.writeText(model._data).then(function() { }, function(err) {
             console.error('Could not write to clipboard: ', err);
         });
       })

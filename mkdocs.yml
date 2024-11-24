@@ -9,7 +9,7 @@ theme:
     name: material
     logo: 'assets/logo.svg'
     features:
-        - content.copy.code
+      - content.code.copy
     palette:
         # Palette toggle for light mode
         - media: "(prefers-color-scheme: light)"

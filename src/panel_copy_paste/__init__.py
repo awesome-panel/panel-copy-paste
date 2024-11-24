@@ -1,4 +1,4 @@
-"""Panel Copy-Paste provides features for copy to and pasting from the clipboard."""
+"""`panel-copy-paste` provides features for copying to and pasting from the clipboard."""
 
 import importlib.metadata
 import warnings
