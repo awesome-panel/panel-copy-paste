@@ -31,10 +31,18 @@ CopyButton(value="Hello World").servable()
 
 ## Supported Types
 
+As `value` you can use any of the types below.
+
 - `str`: Any String value
 - `DataFrame`: Pandas and Polars dataframes
 
 More types can be supported. Please [create a Feature Request](https://github.com/awesome-panel/panel-copy-paste/issues).
+
+In addition the below values will be resolved to above types
+
+- `Parameterized`: Must have `.value` or `.object` attribute.
+- `Parameter`:
+- `Callback`:
 
 ## Development
 
