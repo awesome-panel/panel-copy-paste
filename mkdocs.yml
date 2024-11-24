@@ -58,6 +58,8 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          paths:
+            - src
           options:
             docstring_style: numpy
             show_if_no_docstring: true

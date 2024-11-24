@@ -1,3 +1,3 @@
 # Reference
 
-::: src.panel_copy_paste
+::: panel_copy_paste
