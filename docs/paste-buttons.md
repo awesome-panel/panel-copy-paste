@@ -29,6 +29,23 @@ button = PasteButton(target=editor, button=custom_button)
 pn.Column(button, editor).servable()
 ```
 
+The `target` is optional and may be a *Widget or Pane like* `Parameterized` class, a `Parameter` or a callable (function). For example you can use a callable to lower case the string before pasting the value to a widget:
+
+```{.python pycafe-link hl_lines="4-5"}
+import panel as pn
+from panel_copy_paste import PasteButton
+
+pn.extension("codeeditor")
+
+editor = pn.widgets.CodeEditor()
+
+def lower_case(value):
+    editor.value = value.lower()
+
+button = PasteButton(target=lower_case)
+pn.Column(button, editor).servable()
+```
+
 ## Paste to DataFrame
 
 The `PasteToDataFrameButton` can be used to **paste a *tab-separated* string from Excel** or another application into your data app:
