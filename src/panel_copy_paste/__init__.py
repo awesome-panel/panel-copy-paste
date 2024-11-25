@@ -4,7 +4,8 @@ import importlib.metadata
 import warnings
 
 from panel_copy_paste._copy_button import CopyButton
-from panel_copy_paste._paste_button import PasteButton, PasteToDataFrameButton
+from panel_copy_paste._paste_button import PasteButton
+from panel_copy_paste._paste_button import PasteToDataFrameButton
 
 try:
     __version__ = importlib.metadata.version(__name__)

@@ -3,7 +3,8 @@
 import pandas as pd
 import panel as pn
 
-from panel_copy_paste import PasteButton, PasteToDataFrameButton
+from panel_copy_paste import PasteButton
+from panel_copy_paste import PasteToDataFrameButton
 
 
 def test_paste_string_input():
