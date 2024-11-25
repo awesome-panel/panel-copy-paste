@@ -31,7 +31,7 @@ pn.Column(button, editor).servable()
 
 The `target` is optional and may be a *Widget or Pane like* `Parameterized` class, a `Parameter` or a callable (function). For example you can use a callable to lower case the string before pasting the value to a widget:
 
-```{.python pycafe-link hl_lines="4-5"}
+```{.python pycafe-link hl_lines="8,9,11"}
 import panel as pn
 from panel_copy_paste import PasteButton
 
