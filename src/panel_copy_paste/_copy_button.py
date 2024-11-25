@@ -52,7 +52,6 @@ class CopyButton(pn.custom.JSComponent):
 
       if (model.decimal_separator === null) {
         model.decimal_separator = getDecimalSeparator();
-        console.log("set")
       }
 
       model.on("_data", (e)=>{

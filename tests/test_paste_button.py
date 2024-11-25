@@ -26,8 +26,8 @@ def test_paste_csv_input():
     assert not widget.value
     assert not target.value
     # When
-    widget.data = """1\t2\t3\t4"""
+    widget.data = "x\n1.1\n2.2\n"
     # Then
-    expected = pd.DataFrame([{0: 1, 1: 2, 2: 3, 3: 4}])
+    expected = pd.DataFrame({"x": [1.1, 2.2]})
     pd.testing.assert_frame_equal(widget.value, expected)
     pd.testing.assert_frame_equal(widget.value, target.value)
