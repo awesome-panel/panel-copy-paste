@@ -3,6 +3,7 @@
 import pandas as pd
 import param
 import polars as pl
+import pytest
 
 from panel_copy_paste import CopyButton
 
@@ -39,17 +40,47 @@ def test_transform_str():
     assert CopyButton._transform_value(value) == value
 
 
-def test_transform_pandas_dataframe():
+@pytest.mark.parametrize(
+    ["decimal_seperator", "expected"],
+    [
+        (None, "x\n1.1\n"),
+        (".", "x\n1.1\n"),
+        (",", "x\n1,1\n"),
+    ],
+)
+def test_transform_pandas_dataframe(decimal_seperator, expected):
     """Can copy with the CopyButton."""
-    value = pd.DataFrame({"x": [1, 2], "y": ["a", "b"]})
+    value = pd.DataFrame({"x": [1.1]})
 
-    assert CopyButton._transform_value(value) == "\tx\ty\n0\t1\ta\n1\t2\tb\n"
+    assert CopyButton._transform_value(value, decimal_separator=decimal_seperator) == expected
 
 
-def test_transform_polars_dataframe():
+@pytest.mark.parametrize(
+    ["index", "expected"],
+    [
+        (True, "\tx\n0\t1.1\n"),
+        (False, "x\n1.1\n"),
+    ],
+)
+def test_transform_pandas_dataframe_index(index, expected):
+    """Can copy with the CopyButton."""
+    value = pd.DataFrame({"x": [1.1]})
+
+    assert CopyButton._transform_value(value, index=index) == expected
+
+
+@pytest.mark.parametrize(
+    ["decimal_seperator", "expected"],
+    [
+        (None, "x\n1.1\n"),
+        (".", "x\n1.1\n"),
+        (",", "x\n1,1\n"),
+    ],
+)
+def test_transform_polars_dataframe(decimal_seperator, expected):
     """Can transform Polars DataFrame."""
-    value = pl.DataFrame({"x": [1, 2], "y": ["a", "b"]})
-    assert CopyButton._transform_value(value) == "x\ty\n1\ta\n2\tb\n"
+    value = pl.DataFrame({"x": [1.1]})
+    assert CopyButton._transform_value(value, decimal_separator=decimal_seperator) == expected
 
 
 def test_transform_callback():
@@ -58,7 +89,7 @@ def test_transform_callback():
     def callback():
         return pd.DataFrame({"x": [1, 2], "y": ["a", "b"]})
 
-    assert CopyButton._transform_value(callback) == "\tx\ty\n0\t1\ta\n1\t2\tb\n"
+    assert CopyButton._transform_value(callback) == "x\ty\n1\ta\n2\tb\n"
 
 
 def test_transform_parameter():
