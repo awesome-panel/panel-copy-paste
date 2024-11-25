@@ -24,6 +24,7 @@ pytest-cov = "*"
 mypy = "*"
 pandas = ">=2.2.3,<3"
 polars = ">=1.14.0,<2"
+pyarrow = "*"
 [feature.test.tasks]
 test = "pytest"
 test-coverage = "pytest --cov=panel_copy_paste --cov-report=xml --cov-report=term-missing"

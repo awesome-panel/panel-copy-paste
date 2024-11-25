@@ -22,7 +22,8 @@ def read_csv(self, data: str) -> "pd.DataFrame":
 
     if not data:
         return pd.DataFrame()
-    return pd.read_csv(StringIO(data), sep="\t", header=None)
+    decimal = self.decimal_separator or "."
+    return pd.read_csv(StringIO(data), sep="\t", decimal=decimal)
 
 
 class PasteButtonBase(pn.custom.JSComponent):
@@ -130,6 +131,37 @@ class PasteToDataFrameButton(PasteButtonBase):
 
     """
 
+    _esm = """
+    function getDecimalSeparator(locale) {
+        const numberWithDecimalSeparator = 1.1;
+        return Intl.NumberFormat(locale)
+            .formatToParts(numberWithDecimalSeparator)
+            .find(part => part.type === 'decimal')
+            .value;
+    }
+
+    export function render({ model, el }) {
+      const button = model.get_child("button")
+      el.appendChild(button)
+
+      if (model._decimal_separator === null) {
+        model.decimal_separator = getDecimalSeparator();
+      }
+
+      button.addEventListener('click', (event) => {
+            navigator.clipboard.readText()
+            .then(pastedData => {
+                if (model.data==pastedData){
+                    model.data=pastedData + " ";
+                } else {
+                    model.data = pastedData;
+                }
+            })
+
+        });
+    }
+    """
+
     value = param.DataFrame(doc="""The value from the clip board as a Pandas DataFrame.""")
     button = pn.custom.Child(constant=True, doc="""A custom Button or ButtonIcon to use.""")
     target = param.Parameter(
@@ -138,4 +170,9 @@ class PasteToDataFrameButton(PasteButtonBase):
         allow_refs=False,
     )
 
+    decimal_separator = param.Selector(
+        default=None,
+        objects=[None, ".", ","],
+        doc="""The decimal symbol used when transforming a DataFrame. If not provided set to the decimal symbol of the client.""",
+    )
     _transform_func = read_csv
