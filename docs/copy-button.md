@@ -2,7 +2,7 @@
 
 The `CopyButton` can be used to copy-paste any **string `value`**:
 
-```{.python pycafe-embed pycafe-embed-height="100px" hl_lines="3"}
+```{.python pycafe-embed pycafe-embed-height="100px" pycafe-iframe-allow="clipboard-write; clipboard-read" hl_lines="3"}
 from panel_copy_paste import CopyButton
 
 CopyButton(value="Hello World").servable()

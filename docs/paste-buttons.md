@@ -4,7 +4,7 @@
 
 The `PasteButton` can be used to paste any **string `value`**:
 
-```{.python pycafe-link pycafe-embed-height="100px" hl_lines="2,7"}
+```{.python pycafe-link pycafe-embed-height="100px" hl_lines="6-7"}
 import panel as pn
 from panel_copy_paste import PasteButton
 
@@ -17,7 +17,7 @@ pn.Column(button, editor).servable()
 
 If you want a **custom button**, it's also possible:
 
-```{.python pycafe-link hl_lines="4-5"}
+```{.python pycafe-link hl_lines="7-8"}
 import panel as pn
 from panel_copy_paste import PasteButton
 
@@ -31,7 +31,7 @@ pn.Column(button, editor).servable()
 
 The `target` is optional and may be a *Widget or Pane like* `Parameterized` class, a `Parameter` or a callable (function). For example you can use a callable to lower case the string before pasting the value to a widget:
 
-```{.python pycafe-link hl_lines="8,9,11"}
+```{.python pycafe-link hl_lines="8-11"}
 import panel as pn
 from panel_copy_paste import PasteButton
 
@@ -50,7 +50,7 @@ pn.Column(button, editor).servable()
 
 The `PasteToDataFrameButton` can be used to **paste a *tab-separated* string from Excel** or another application into your data app:
 
-```{.python pycafe-link extra-requirements="pandas" hl_lines="2,7"}
+```{.python pycafe-link extra-requirements="pandas" hl_lines="6-7"}
 import panel as pn
 from panel_copy_paste import PasteToDataFrameButton
 

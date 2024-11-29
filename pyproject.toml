@@ -51,7 +51,7 @@ Source = "https://github.com/awesome-panel/panel-copy-paste"
 dev = [
     "jedi-language-server;sys_platform == 'linux'",
     "mkdocs-material",
-    "mkdocs-pycafe",
+    "mkdocs-pycafe>=0.2.0",
     "mkdocs",
     "mkdocstrings[python]",
     "pandas",

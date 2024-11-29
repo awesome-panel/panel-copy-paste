@@ -80,7 +80,7 @@ mkdocs = "*"
 mkdocs-material = "*"
 mkdocstrings-python = "*"
 [feature.docs.pypi-dependencies]
-mkdocs-pycafe = "*"
+mkdocs-pycafe = ">=0.2.0"
 [feature.docs.tasks]
 docs = "mkdocs serve"
 docs-build = "mkdocs build"
